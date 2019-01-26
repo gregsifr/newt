@@ -1,0 +1,61 @@
+project /ntradesys 
+    : 
+    : usage-requirements <include>.
+    : usage-requirements <include>../secretcode
+    ;
+
+lib cscommon :
+        HFUtils.cc
+        TradeRequest.cc
+        FeeCalc.cpp
+        OpenTracker.cpp
+        ExchangeTracker.cpp
+        HistVolumeTracker.cpp
+        OpenTracker.cpp
+        : <threading>multi
+        :
+        <library>/client-lite//client-lite
+    ;
+
+lib tsi :
+        CentralOrderRepo.cpp
+        CrossComponent.cpp
+        ExecutionEngine.cpp
+        FollowLeaderComponent.cpp
+        FollowLeaderJoinQueueBackup.cpp
+        JoinQueueComponent.cpp
+        LastVisbTradeTracker.cc 
+        MarketCapacityModel.cc
+        MaxQueueSizeTracker.cpp
+        PNLTracker.cc
+        Fills.cc
+        TCTracking.cc
+        OrderRecord.cpp
+        PriorityComponent.cpp
+        MOCComponent.cpp
+        QSzTracker.cpp
+        CapacityTracker.cc
+        StocksState.cpp
+        Suggestions.cpp
+        TradeConstraints.cpp
+        TradeLogic.cpp
+        TradeLogicComponent.cpp
+        PullTracker.cpp
+        : <threading>multi
+        :
+        <library>/ntradesys//cscommon
+        <library>/client-lite//client-lite
+        <library>/cpputil//cpputil
+    ;
+
+lib alphasignal :
+        AlphaSignal.cc
+        : <threading>multi
+        :
+        <library>/ntradesys//cscommon
+        <library>/client-lite//client-lite
+    ;
+
+
+alias secretcode : /secretcode//secretcode ;
+alias secretsignal : /secretcode//signal ;

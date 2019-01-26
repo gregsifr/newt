@@ -1,0 +1,39 @@
+project /client-lite/apps 
+    : requirements <include>.
+;
+
+exe testdataman :
+    TestDataman.cpp
+    /client-lite//client-lite
+    : <threading>multi
+;
+
+exe crosstarget :
+    CrossTargetTrader.cpp
+    /client-lite//client-lite
+    : <threading>multi
+;
+
+exe orderwatch :
+    OrderWatcher.cpp
+    /client-lite//client-lite
+    : <threading>multi
+;
+
+exe simdebug :
+    SimDebug.cpp
+    /client-lite//client-lite
+    : <threading>multi
+;
+
+exe getpos :
+    GetPosition.cpp
+    /client-lite//client-lite
+    : <threading>multi
+;
+
+exe posupdater :
+    PosUpdater.cpp
+    /client-lite//client-lite
+    : <threading>multi
+;

@@ -1,0 +1,15 @@
+project /apps/timeslice
+  :
+  : usage-requirements <include>.
+;
+
+exe ums :
+    SendMsg.cpp
+    myUMS.cc
+  : <threading>multi
+    <library>/hyp2-client/lib2//client2
+    <library>/compat//util
+    <library>/hyp2-base//util
+     <library>/client-lite//client-lite
+
+;

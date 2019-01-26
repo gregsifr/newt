@@ -1,0 +1,43 @@
+project /cpputil 
+    : usage-requirements <include>.
+;
+
+lib cpputil :
+    normal.cc
+    nric.cc
+    #ranf.cc
+    RUtils.cc
+    SimpleAwkParser.cpp
+    StringConversion.cc
+    :
+    :
+    <library>/boost//regex
+;
+
+lib hfcpputil :
+    PerStockParams.cc
+    :
+    :
+    <library>/client-lite//client-lite
+    <library>cpputil
+;
+
+exe rutils_test :
+    RUtils_test.cc
+    :
+    :
+    <library>cpputil
+;
+
+explicit rutils_test ;
+
+exe awkparse_test :
+    SimpleAwk_test.cc
+    :
+    :
+    <library>cpputil 
+    <library>/boost//regex
+;
+
+alias dist : cpputil ;
+explicit dist ;

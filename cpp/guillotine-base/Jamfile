@@ -1,0 +1,26 @@
+project /guillotine/message
+    : usage-requirements <include>headers
+    : requirements <include>headers
+    ;
+
+lib message :
+    typed_message.cpp
+    yaml_message.cpp
+    /boost//boost
+    : <library>/system//yaml
+      <library>/boost//program_options
+      <library>/hyp2-base//util
+;
+
+exe yaml_test :
+    yaml_message.cpp
+    : <library>message
+;
+
+exe reflect :
+    reflect.cpp
+    : <library>message
+;
+
+explicit yaml_test ;
+explicit reflect ;

@@ -1,0 +1,18 @@
+project /guillotine/server 
+  : requirements <include>. <debug-symbols>on
+;
+
+exe gt-server :
+  GuillotineTCP.cpp
+  GuillotineHF.cpp
+  guillotine.cpp
+  :
+  <threading>multi
+  <library>/guillotine/message//message
+  <library>/compat//util
+  <library>/hyp2-base//util
+  <library>/ntradesys//tsi
+  <library>/ntradesys//secretcode
+  <library>/ntradesys//secretsignal
+  <library>/client-lite//client-lite
+;

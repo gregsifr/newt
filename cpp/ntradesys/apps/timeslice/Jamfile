@@ -1,0 +1,20 @@
+project /ntradesys/apps/timeslice
+  :
+  : usage-requirements <include>.
+;
+
+exe timeslice :
+  StockInfo.cpp
+  TimeSlicesTrader.cpp
+  ExternTradeRequest.cpp
+  AlphaFromFile.cpp
+  AlphaSignal.cc
+  CostLogWriter.cpp
+  : <threading>multi
+  : <library>/compat//util
+    <library>/hyp2-base//util
+    <library>/ntradesys//tsi
+    <library>/secretcode//secretcode
+    <use>/hyp2-client/bb//bb
+    <library>/hyp2-client/bb//bb
+;

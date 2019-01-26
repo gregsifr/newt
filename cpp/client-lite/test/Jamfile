@@ -1,0 +1,44 @@
+exe table_test :
+    table_test.cpp
+    : <library>/client-lite//util
+;
+
+exe cmp_test :
+    cmp.cpp
+    : <library>/client-lite//util
+;
+
+lib fact_1 :
+    fact1.cpp
+    : <library>/client-lite//util
+;
+
+lib fact_2 :
+    fact2.cpp
+    : <library>/client-lite//util
+;
+
+exe fact_link_test :
+    fact_link_test.cpp
+    : <library>/client-lite//util
+     <library>fact_1
+     <library>fact_2
+;
+
+exe factory_test :
+    factory_test.cpp
+    : <library>/client-lite//util
+;
+
+exe config_test :
+    config.cpp
+    : <threading>multi
+    : <library>/client-lite//util
+
+;
+
+exe float_test :
+    float_test.cpp
+    : <threading>multi
+    : <library>/client-lite//util
+;
